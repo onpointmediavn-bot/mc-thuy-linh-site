@@ -509,3 +509,6 @@ body.lx-open .opt-switch{display:none}
 @media (min-width:861px){.about-clean .facts dt{white-space:nowrap;font-size:clamp(30px,3.2vw,46px)}}
 @media (max-width:860px){.about-clean .facts div,.about-clean .facts div+div{padding:18px 6px 0}}
 @media (min-width:861px){.about-clean .facts dt{font-size:clamp(28px,2.7vw,40px)}}
+/* mục lục tên chương trình đã bỏ → đầu chương gọn hơn */
+.chap{padding-top:clamp(72px,9vw,130px);padding-bottom:clamp(64px,8vw,110px)}
+.chap-sm{padding-bottom:clamp(40px,5vw,70px)}
