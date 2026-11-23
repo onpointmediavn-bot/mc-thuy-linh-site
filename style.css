@@ -291,7 +291,8 @@ body.lx-open{overflow:hidden}
   .nav a{font-size:15px;padding:16px 0;border-bottom:1px solid rgba(233,201,139,.14)}
   .nav a::after{display:none}
   .nav .nav-cta{margin-top:14px;text-align:center;border:1px solid var(--acc)}
-  html:not(.js) .nav{position:static;opacity:1;visibility:visible;transform:none}
+  /* không có / lỗi JavaScript: ẩn menu cho gọn, nội dung vẫn hiện đầy đủ khi cuộn */
+  html:not(.js) .nav,html:not(.js) .menu-btn{display:none}
 
   .top{background:rgba(6,10,34,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
   .hero{min-height:100svh}

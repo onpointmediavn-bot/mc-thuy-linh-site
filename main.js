@@ -142,4 +142,5 @@
   };
   document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if (a) openFor(a.getAttribute('href')); });
   openFor(location.hash);
+  window.__tl = 1;   // báo cho trang biết hiệu ứng đã chạy xong (không thì sau 4 giây trang tự hiện hết nội dung)
 })();
