@@ -6,10 +6,10 @@
 
   /* 1. Màn nhung đầu trang mở khi ảnh chính tải xong (tối đa chờ 1,2 giây) */
   const hero = $('.hero');
-  const heroImg = $('.hero-cut');
+  const heroImg = $('.hero-cut, .hc-cut');
   let opened = false;
   const open = () => { if (!opened) { opened = true; requestAnimationFrame(() => hero.classList.add('is-open')); } };
-  if (reduce) open();
+  if (reduce || !heroImg) open();
   else {
     if (heroImg.complete) setTimeout(open, 150); else heroImg.addEventListener('load', () => setTimeout(open, 150), { once: true });
     setTimeout(open, 800);
@@ -118,4 +118,28 @@
     if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null;
     if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
   });
+
+  /* 7. Phương án B: nút "Xem thêm" mở danh sách chương trình còn lại */
+  const expand = (more, on) => {
+    const b = $('.more-btn', more); if (!b) return;
+    more.classList.toggle('is-open', on); b.setAttribute('aria-expanded', on);
+    const t = $('.more-txt', b);
+    if (!b.dataset.label) b.dataset.label = t.textContent;
+    t.textContent = on ? 'Thu gọn' : b.dataset.label;
+  };
+  $$('.more').forEach(m => $('.more-btn', m).addEventListener('click', () => {
+    const on = !m.classList.contains('is-open'); expand(m, on);
+    if (!on) m.scrollIntoView({ block: 'nearest' });
+  }));
+  // bấm tên chương trình ở mục lục (hoặc mở link có #) → tự mở phần "Xem thêm" chứa nó
+  const openFor = (hash) => {
+    const el = hash && hash.length > 1 && document.getElementById(decodeURIComponent(hash.slice(1)));
+    const m = el && el.closest('.more');
+    if (m && !m.classList.contains('is-open')) {
+      expand(m, true);
+      requestAnimationFrame(() => el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
+    }
+  };
+  document.addEventListener('click', e => { const a = e.target.closest('a[href^="#"]'); if (a) openFor(a.getAttribute('href')); });
+  openFor(location.hash);
 })();
