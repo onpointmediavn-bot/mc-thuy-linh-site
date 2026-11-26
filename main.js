@@ -1,3 +1,46 @@
+/* NỀN DEMO 19 "Blue Curtain" — rèm nhung xanh chuyển động (chép nguyên shader + nhịp từ bộ 100 demo, core3.js) */
+(function () {
+  var cv = document.querySelector('.bgfx'); if (!cv) return;
+  var R = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var gl = cv.getContext('webgl', { antialias: false, alpha: true, premultipliedAlpha: false, powerPreference: 'low-power' });
+  if (!gl) { cv.classList.add('no-gl'); return; }
+  var FRAG = 'precision mediump float;uniform float u_t,u_scroll,u_sec;uniform vec2 u_res,u_mouse;\n' +
+    'float h1(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}\n' +
+    'float ns(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h1(i),h1(i+vec2(1,0)),f.x),mix(h1(i+vec2(0,1)),h1(i+vec2(1,1)),f.x),f.y);}\n' +
+    'float fbm(vec2 p){float s=0.,a=.5;for(int i=0;i<5;i++){s+=a*ns(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return s;}\n' +
+    'void main(){vec2 uv=gl_FragCoord.xy/u_res;float t=u_t*.4;float x=uv.x*18.+sin(uv.y*3.+t+u_sec)*.8+fbm(vec2(uv.x*3.,t*.2))*1.5;\n' +
+    'float fold=.5+.5*sin(x);vec3 col=mix(vec3(.02,.03,.1),vec3(.08,.14,.42),pow(fold,3.))+vec3(.4,.55,1.)*pow(fold,24.)*.15;col+=vec3(.91,.79,.55)*exp(-pow((uv.y-.98)*12.,2.))*.2;col*=.75+.25*uv.y;col*=1.-.35*length(uv-.5);gl_FragColor=vec4(col,1.);}';
+  function sh(type, src) { var o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; }
+  var v = sh(gl.VERTEX_SHADER, 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}'), f = sh(gl.FRAGMENT_SHADER, FRAG);
+  if (!v || !f) { cv.classList.add('no-gl'); return; }
+  var pr = gl.createProgram(); gl.attachShader(pr, v); gl.attachShader(pr, f); gl.linkProgram(pr); gl.useProgram(pr);
+  var b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  var U = {}; ['u_t', 'u_res', 'u_mouse', 'u_scroll', 'u_sec'].forEach(function (n) { U[n] = gl.getUniformLocation(pr, n); });
+  var scale = 0.5;   // giống demo 19: MCX.shader(..., {scale: 0.5})
+  function size() { var dpr = Math.min(devicePixelRatio || 1, 2) * scale; cv.width = Math.max(1, cv.clientWidth * dpr | 0); cv.height = Math.max(1, cv.clientHeight * dpr | 0); gl.viewport(0, 0, cv.width, cv.height); }
+  size(); addEventListener('resize', size);
+  /* chương đang xem → u_sec (0 = màn đầu), nếp rèm dịch pha khi sang chương mới */
+  var chs = [].slice.call(document.querySelectorAll('[data-ch]')), sec = 0, secT = 0, scroll = 0;
+  function upd() {
+    var c = innerHeight * .5, val = 0; chs.forEach(function (e) { if (e.getBoundingClientRect().top < c) val = +e.dataset.ch; }); secT = val;
+    var h = document.documentElement.scrollHeight - innerHeight; scroll = h > 0 ? scrollY / h : 0;
+  }
+  addEventListener('scroll', upd, { passive: true }); upd();
+  function draw(t) {
+    gl.uniform1f(U.u_t, t); gl.uniform2f(U.u_res, cv.width, cv.height); gl.uniform2f(U.u_mouse, .5, .5);
+    gl.uniform1f(U.u_scroll, scroll); sec += (secT - sec) * .03; gl.uniform1f(U.u_sec, sec); gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  if (R) { draw(6); return; }   // giảm chuyển động: vẽ một khung đứng yên
+  var t0 = performance.now(), raf = 0, hiddenAt = 0;
+  function frame(now) { draw((now - t0) / 1000); raf = document.hidden ? 0 : requestAnimationFrame(frame); }
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { hiddenAt = performance.now(); return; }
+    if (hiddenAt) { t0 += performance.now() - hiddenAt; hiddenAt = 0; }
+    if (!raf) raf = requestAnimationFrame(frame);
+  });
+  raf = requestAnimationFrame(frame);
+})();
 /* MC Thuỳ Linh — tương tác: màn nhung, menu, hiện dần khi cuộn, phóng to ảnh */
 (() => {
   const $ = (s, r = document) => r.querySelector(s);

@@ -512,3 +512,11 @@ body.lx-open .opt-switch{display:none}
 /* mục lục tên chương trình đã bỏ → đầu chương gọn hơn */
 .chap{padding-top:clamp(72px,9vw,130px);padding-bottom:clamp(64px,8vw,110px)}
 .chap-sm{padding-bottom:clamp(40px,5vw,70px)}
+
+/* ===== Nền demo 19 "Blue Curtain": rèm nhung xanh chuyển động phủ cả trang ===== */
+.bgfx{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block;pointer-events:none}
+.bgfx.no-gl{display:none}
+/* các mục trong suốt để rèm hiện xuyên suốt như demo */
+.hero{background:radial-gradient(120% 80% at 50% 110%,rgba(22,36,106,.5) 0,transparent 60%)}
+.hero-clean{background:radial-gradient(55% 70% at 72% 52%,rgba(34,56,140,.32),transparent 70%)}
+.contact-curtain{background:linear-gradient(90deg,rgba(6,10,34,.82) 22%,rgba(6,10,34,.15) 70%,transparent)}

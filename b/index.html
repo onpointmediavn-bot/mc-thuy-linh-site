@@ -14,10 +14,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Encode+Sans:wght@400;500;600&display=swap&subset=vietnamese" rel="stylesheet">
 <link rel="preload" as="image" href="../assets/cutouts/hero-b-sm.webp" imagesrcset="../assets/cutouts/hero-b-sm.webp 379w, ../assets/cutouts/hero-b.webp 853w" imagesizes="(max-width: 760px) 90vw, 40vw">
-<link rel="stylesheet" href="../style.css?v=30a6efb9">
+<link rel="stylesheet" href="../style.css?v=0c7e355f">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__tl)document.documentElement.classList.remove('js')},4000)</script>
 </head>
 <body>
+<canvas class="bgfx" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Bỏ qua, tới nội dung chính</a>
 
 <header class="top" id="top-bar">
@@ -29,7 +30,7 @@
 </header>
 
 <main id="main">
-<section class="hero hero-clean" id="top" aria-label="Giới thiệu">
+<section class="hero hero-clean" id="top" data-ch="0" aria-label="Giới thiệu">
   <div class="hc-copy">
     <p class="eyebrow hc-eyebrow">MC · Người dẫn chương trình</p>
     <h1 class="hc-name"><span class="sr">MC </span>Thuỳ <em>Linh</em></h1>
@@ -47,7 +48,7 @@
   <div class="curtain curtain-r" aria-hidden="true"></div>
 </section>
 
-<section class="about about-clean" id="ho-so" aria-labelledby="h-about">
+<section class="about about-clean" id="ho-so" data-ch="0" aria-labelledby="h-about">
   <div class="about-copy reveal">
     <p class="eyebrow">Hồ sơ</p>
     <h2 id="h-about">MC Thuỳ Linh</h2>
@@ -62,7 +63,7 @@
 
 <div class="programs" id="chuong-trinh">
 
-<section class="chapter chapter-b" id="su-kien" aria-labelledby="h-su-kien">
+<section class="chapter chapter-b" id="su-kien" data-ch="1" aria-labelledby="h-su-kien">
   <div class="chap reveal-curtain">
     <span class="chap-roman" aria-hidden="true">I</span>
     <h2 class="chap-title" id="h-su-kien">Sự kiện</h2>
@@ -191,7 +192,7 @@
 </li></ul>
   </div></div>
 </section>
-<section class="chapter chapter-b" id="chinh-luan" aria-labelledby="h-chinh-luan">
+<section class="chapter chapter-b" id="chinh-luan" data-ch="2" aria-labelledby="h-chinh-luan">
   <div class="chap reveal-curtain">
     <span class="chap-roman" aria-hidden="true">II</span>
     <h2 class="chap-title" id="h-chinh-luan">Chính luận</h2>
@@ -280,7 +281,7 @@
 </li></ul>
   </div></div>
 </section>
-<section class="chapter chapter-b" id="truyen-hinh" aria-labelledby="h-truyen-hinh">
+<section class="chapter chapter-b" id="truyen-hinh" data-ch="3" aria-labelledby="h-truyen-hinh">
   <div class="chap reveal-curtain">
     <span class="chap-roman" aria-hidden="true">III</span>
     <h2 class="chap-title" id="h-truyen-hinh">Truyền hình</h2>
@@ -314,7 +315,7 @@
 </section>
 </div>
 
-<section class="lookbook" id="lookbook" aria-labelledby="h-look">
+<section class="lookbook" id="lookbook" data-ch="4" aria-labelledby="h-look">
   <div class="chap reveal-curtain chap-sm">
     <span class="chap-roman" aria-hidden="true">IV</span>
     <h2 class="chap-title" id="h-look">Lookbook</h2>
@@ -323,7 +324,7 @@
   <div class="lb-grid" data-gallery="lookbook" data-title="Lookbook"><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-2676-1600.webp" data-w="1600" data-h="2394" data-alt="MC Thuỳ Linh – lookbook ảnh 1" aria-label="Xem ảnh lookbook 1"><img class="" src="../assets/img/lookbook/img-2676-800.webp" srcset="../assets/img/lookbook/img-2676-800.webp 800w, ../assets/img/lookbook/img-2676-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2394" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 1"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-6524-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 2" aria-label="Xem ảnh lookbook 2"><img class="" src="../assets/img/lookbook/img-6524-800.webp" srcset="../assets/img/lookbook/img-6524-800.webp 800w, ../assets/img/lookbook/img-6524-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 2"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-5618-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 3" aria-label="Xem ảnh lookbook 3"><img class="" src="../assets/img/lookbook/img-5618-800.webp" srcset="../assets/img/lookbook/img-5618-800.webp 800w, ../assets/img/lookbook/img-5618-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 3"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-9854-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 4" aria-label="Xem ảnh lookbook 4"><img class="" src="../assets/img/lookbook/img-9854-800.webp" srcset="../assets/img/lookbook/img-9854-800.webp 800w, ../assets/img/lookbook/img-9854-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 4"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-5093-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 5" aria-label="Xem ảnh lookbook 5"><img class="" src="../assets/img/lookbook/img-5093-800.webp" srcset="../assets/img/lookbook/img-5093-800.webp 800w, ../assets/img/lookbook/img-5093-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 5"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-2680-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 6" aria-label="Xem ảnh lookbook 6"><img class="" src="../assets/img/lookbook/img-2680-800.webp" srcset="../assets/img/lookbook/img-2680-800.webp 800w, ../assets/img/lookbook/img-2680-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 6"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-6528-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 7" aria-label="Xem ảnh lookbook 7"><img class="" src="../assets/img/lookbook/img-6528-800.webp" srcset="../assets/img/lookbook/img-6528-800.webp 800w, ../assets/img/lookbook/img-6528-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 7"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-5619-1600.webp" data-w="1600" data-h="2441" data-alt="MC Thuỳ Linh – lookbook ảnh 8" aria-label="Xem ảnh lookbook 8"><img class="" src="../assets/img/lookbook/img-5619-800.webp" srcset="../assets/img/lookbook/img-5619-800.webp 800w, ../assets/img/lookbook/img-5619-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2441" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 8"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-9848-1600.webp" data-w="1600" data-h="2461" data-alt="MC Thuỳ Linh – lookbook ảnh 9" aria-label="Xem ảnh lookbook 9"><img class="" src="../assets/img/lookbook/img-9848-800.webp" srcset="../assets/img/lookbook/img-9848-800.webp 800w, ../assets/img/lookbook/img-9848-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2461" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 9"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-3812-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 10" aria-label="Xem ảnh lookbook 10"><img class="" src="../assets/img/lookbook/img-3812-800.webp" srcset="../assets/img/lookbook/img-3812-800.webp 800w, ../assets/img/lookbook/img-3812-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 10"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-7843-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 11" aria-label="Xem ảnh lookbook 11"><img class="" src="../assets/img/lookbook/img-7843-800.webp" srcset="../assets/img/lookbook/img-7843-800.webp 800w, ../assets/img/lookbook/img-7843-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 11"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-6525-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 12" aria-label="Xem ảnh lookbook 12"><img class="" src="../assets/img/lookbook/img-6525-800.webp" srcset="../assets/img/lookbook/img-6525-800.webp 800w, ../assets/img/lookbook/img-6525-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 12"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-5611-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 13" aria-label="Xem ảnh lookbook 13"><img class="" src="../assets/img/lookbook/img-5611-800.webp" srcset="../assets/img/lookbook/img-5611-800.webp 800w, ../assets/img/lookbook/img-5611-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 13"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-9852-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 14" aria-label="Xem ảnh lookbook 14"><img class="" src="../assets/img/lookbook/img-9852-800.webp" srcset="../assets/img/lookbook/img-9852-800.webp 800w, ../assets/img/lookbook/img-9852-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 14"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-5087-1600.webp" data-w="1600" data-h="2241" data-alt="MC Thuỳ Linh – lookbook ảnh 15" aria-label="Xem ảnh lookbook 15"><img class="" src="../assets/img/lookbook/img-5087-800.webp" srcset="../assets/img/lookbook/img-5087-800.webp 800w, ../assets/img/lookbook/img-5087-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2241" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 15"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-2674-1600.webp" data-w="1600" data-h="2400" data-alt="MC Thuỳ Linh – lookbook ảnh 16" aria-label="Xem ảnh lookbook 16"><img class="" src="../assets/img/lookbook/img-2674-800.webp" srcset="../assets/img/lookbook/img-2674-800.webp 800w, ../assets/img/lookbook/img-2674-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2400" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 16"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-6534-1600.webp" data-w="1600" data-h="2405" data-alt="MC Thuỳ Linh – lookbook ảnh 17" aria-label="Xem ảnh lookbook 17"><img class="" src="../assets/img/lookbook/img-6534-800.webp" srcset="../assets/img/lookbook/img-6534-800.webp 800w, ../assets/img/lookbook/img-6534-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2405" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 17"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-5608-1600.webp" data-w="1600" data-h="2501" data-alt="MC Thuỳ Linh – lookbook ảnh 18" aria-label="Xem ảnh lookbook 18"><img class="" src="../assets/img/lookbook/img-5608-800.webp" srcset="../assets/img/lookbook/img-5608-800.webp 800w, ../assets/img/lookbook/img-5608-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2501" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 18"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/img-9849-1600.webp" data-w="1600" data-h="2371" data-alt="MC Thuỳ Linh – lookbook ảnh 19" aria-label="Xem ảnh lookbook 19"><img class="" src="../assets/img/lookbook/img-9849-800.webp" srcset="../assets/img/lookbook/img-9849-800.webp 800w, ../assets/img/lookbook/img-9849-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2371" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 19"></button><button class="lb-item reveal" type="button" data-full="../assets/img/lookbook/quality-restoration-20250803091530466-1600.webp" data-w="1600" data-h="2428" data-alt="MC Thuỳ Linh – lookbook ảnh 20" aria-label="Xem ảnh lookbook 20"><img class="" src="../assets/img/lookbook/quality-restoration-20250803091530466-800.webp" srcset="../assets/img/lookbook/quality-restoration-20250803091530466-800.webp 800w, ../assets/img/lookbook/quality-restoration-20250803091530466-1600.webp 1600w" sizes="(max-width: 600px) 50vw, (max-width: 1100px) 33vw, 25vw" width="1600" height="2428" loading="lazy" decoding="async" alt="MC Thuỳ Linh – lookbook ảnh 20"></button></div>
 </section>
 
-<section class="contact" id="lien-he" aria-labelledby="h-contact">
+<section class="contact" id="lien-he" data-ch="5" aria-labelledby="h-contact">
   <div class="contact-curtain" aria-hidden="true"></div>
   <div class="contact-copy reveal">
     <p class="eyebrow">Liên hệ</p>
@@ -348,6 +349,6 @@
   <button class="lx-close" type="button" aria-label="Đóng">Đóng ✕</button>
 </div>
 <nav class="opt-switch" aria-label="Chọn phương án xem thử"><a href="../">A</a><a href="./" aria-current="page">B</a></nav>
-<script src="../main.js?v=36063737" defer></script>
+<script src="../main.js?v=6106b011" defer></script>
 </body>
 </html>
