@@ -585,3 +585,29 @@ body.lx-open .opt-switch{display:none}
   .pg-title.is-long{font-size:clamp(20px,5.6vw,26px)}
 }
 @media (min-width:861px){.pg-title.is-long{font-size:clamp(22px,2.15vw,32px)}}
+
+/* 27/11 (2): cân bằng ảnh MC – khung cảnh. Ảnh tách nền nhỏ lại, nép sát mép,
+   để ảnh toàn cảnh sự kiện (sân khấu, khán giả) hiện rõ phía còn lại */
+.pg-cut{height:94%;max-width:34%}
+.pg-cutout .pg-main img{object-position:68% 50%}
+.pg-cutout.is-right .pg-main img{object-position:32% 50%}
+.pg-cutout .pg-cap{left:36%}
+.pg-cutout.is-right .pg-cap{right:36%}
+@media (max-width:860px){
+  .pg-cutout .pg-stage{--fh:clamp(320px,54svh,430px)}
+  .pg-cutout .pg-cut,.pg-cutout.is-right .pg-cut{top:calc(var(--fh) * .36);height:calc(var(--fh) * .64);max-width:40%}
+  .pg-cutout .pg-main img{object-position:62% 50%}
+  .pg-cutout.is-right .pg-main img{object-position:38% 50%}
+}
+
+/* 27/11 (3): logo đơn vị hợp tác — ô kem viền vàng, logo màu (giữ đúng màu thương hiệu) */
+.pt-logos{list-style:none;margin:clamp(34px,4vw,60px) auto 0;padding:0;max-width:1160px;
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.2vw,16px)}
+.pt-logos li{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;padding:12% 10%;
+  background:linear-gradient(160deg,#FFF9EE,#F3E6CC);box-shadow:0 0 0 1px rgba(233,201,139,.55),0 14px 30px -18px rgba(0,0,0,.7);
+  transition:transform .5s var(--ease),box-shadow .5s}
+.pt-logos li:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--acc),0 20px 36px -18px rgba(0,0,0,.8)}
+.pt-logos img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.pt-more{max-width:900px;margin:clamp(24px,3vw,40px) auto 0;font:italic 300 clamp(16px,1.5vw,20px)/1.7 var(--disp);color:var(--fg);opacity:.75}
+@media (max-width:1100px){.pt-logos{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:860px){.pt-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.pt-logos li{padding:14% 10%}.pt-more{font-size:15px}}
