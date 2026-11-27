@@ -568,3 +568,20 @@ body.lx-open .opt-switch{display:none}
 .ct-list li>*{min-width:0}
 .ct-list a{overflow-wrap:anywhere}
 @media (max-width:860px){.ct-list a[href^="mailto"]{font-size:16px}}
+
+/* ===== Rà soát bố cục 27/11 ===== */
+/* tên chương trình quá dài: thu cỡ chữ cho gọn */
+.pg-title.is-long{font-size:clamp(24px,2.5vw,38px)}
+/* điện thoại: tên chương trình nằm DƯỚI khung ảnh, rộng hết bề ngang (không dồn vào nửa khung, không đè người) */
+@media (max-width:860px){
+  .pg-cutout .pg-stage{--fh:clamp(420px,66svh,520px);height:auto}
+  .pg-cutout .pg-frame{position:relative;inset:auto;height:var(--fh)}
+  .pg-cutout .pg-cut,.pg-cutout.is-right .pg-cut{bottom:auto;top:calc(var(--fh) * .08);height:calc(var(--fh) * .92)}
+  .pg-cutout .pg-cap,.pg-cutout.is-right .pg-cap{position:static;width:auto;left:auto;right:auto;bottom:auto;padding:18px 0 0;text-align:left}
+  .pg-cutout .pg-kicker,.pg-cutout.is-right .pg-kicker{justify-content:flex-start}
+  .pg-cutout .pg-cap .pg-title{text-shadow:none}
+  .pg-cutout .pg-frame::before,.pg-cutout.is-right .pg-frame::before{background:none}
+  .pg-cutout .pg-frame::after{background:linear-gradient(180deg,transparent 60%,rgba(6,10,34,.55))}
+  .pg-title.is-long{font-size:clamp(20px,5.6vw,26px)}
+}
+@media (min-width:861px){.pg-title.is-long{font-size:clamp(22px,2.15vw,32px)}}
